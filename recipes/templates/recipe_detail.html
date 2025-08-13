@@ -1,0 +1,40 @@
+Dentro deste arquivo, digite:
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ receita.título }}</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; }
+.container { max-width: 800px; margin: auto; padding: 20px; border: 1px solid
+#ddd; border-radius: 8px; }
+img { max-width: 100%; height: auto; display: block; margin-bottom: 20px;
+border-radius: 4px; }
+h1 { color: #333; }
+p { line-height: 1.6; }
+strong { color: #555; }
+.back-link { display: block; margin-top: 30px; color: #007bff; text-decoration:
+none; }
+.back-link:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+    <div class="container">
+<a href="{% url 'recipe_list' %}" class="back-link">← Voltar para a lista de
+receitas</a>
+<h1>{{ receita.título }}</h1>
+{% if receita.imagem %}
+<img src="{{ receita.image.url }}" alt="Imagem de {{ receita.título }}">
+{% endif %}
+<p><strong>Tempo de preparo:</strong> {{ receita.cooking_time }}
+minutos</p>
+<h2>Ingredientes:</h2>
+<p>{{ receita.ingredients }}</p>
+<h2>Instruções:</h2>
+<p>{{ receita.instructions }}</p>
+<a href="{% url 'recipe_list' %}" class="back-link">← Voltar para a lista de
+receitas</a>
+</div>
+</body>
+</html>
